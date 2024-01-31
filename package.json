@@ -17,7 +17,7 @@
     "url": "https://github.com/LukasPol/vscode-rails-go-to.git"
   },
   "engines": {
-    "vscode": "^1.39.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Other"
