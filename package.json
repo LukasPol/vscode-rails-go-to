@@ -31,6 +31,10 @@
       {
         "command": "rails.goToClassFile",
         "title": "Rails GoTo: Class File"
+      },
+      {
+        "command": "rails.goToTestFile",
+        "title": "Rails GoTo: Open Test File"
       }
     ],
     "keybindings": [
@@ -38,6 +42,12 @@
         "command": "rails.goToClassFile",
         "key": "alt+shift+c",
         "mac": "alt+shift+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "rails.goToTestFile",
+        "key": "alt+shift+t",
+        "mac": "alt+shift+t",
         "when": "editorTextFocus"
       }
     ]
