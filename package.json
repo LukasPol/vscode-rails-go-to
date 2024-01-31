@@ -8,6 +8,7 @@
     "name": "Lukas Pol"
   },
   "license": "MIT",
+  "icon": "images/icon.png",
   "homepage": "https://github.com/LukasPol/vscode-rails-go-to/blob/main/README.md",
   "bugs": {
     "url": "https://github.com/LukasPol/vscode-rails-go-to/issues"
