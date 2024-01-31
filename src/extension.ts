@@ -1,11 +1,10 @@
 import * as vscode from 'vscode';
+import { commandGoToClassFile } from './commands/go-to-class-file';
 
 export function activate(context: vscode.ExtensionContext) {
-	let disposable = vscode.commands.registerCommand('rails.helloWorld', () => {
-		vscode.window.showInformationMessage('Hello World from Rails GoTo!');
-	});
+	let disposableGoToClassFile = vscode.commands.registerCommand('rails.goToClassFile', commandGoToClassFile);
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(disposableGoToClassFile);
 }
 
 export function deactivate() {}
