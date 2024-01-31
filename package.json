@@ -22,13 +22,23 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:ruby"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "rails.helloWorld",
-        "title": "Rails GoTo: Hello World"
+        "command": "rails.goToClassFile",
+        "title": "Rails GoTo: Class File"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "rails.goToClassFile",
+        "key": "alt+shift+c",
+        "mac": "alt+shift+c",
+        "when": "editorTextFocus"
       }
     ]
   },
