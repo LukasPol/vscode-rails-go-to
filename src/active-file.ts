@@ -51,6 +51,15 @@ export class ActiveFile {
     return `${classFile}.rb`;
   }
 
+  get lineSelected(): string {
+    const lineNumber = this.activeTextEditor.selection.active.line
+    return this.document.lineAt(lineNumber).text;
+  }
+
+  get isRelationShipLine(): boolean {
+    return /has_many|has_one|belongs_to|has_and_belongs_to_many/.test(this.lineSelected)
+  }
+
   get isController(): boolean {
     return this.documentUri.path.includes('app/controllers');
   }
