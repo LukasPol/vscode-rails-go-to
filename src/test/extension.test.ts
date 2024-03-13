@@ -49,4 +49,13 @@ describe('Extesion Tests', function () {
 			expect((await editor.getFilePath()).endsWith('vsextensions_controller_spec.rb')).to.be.true;
 		});
 	});
+
+	describe('Command: Open Test File', () => {
+		it('Open controller test', async () => {
+			await openFile('app/controllers/vsextensions_controller.rb', 3, 26);
+			await executeCommand("Rails GoTo: Class File");
+			const editor = new TextEditor();
+			expect((await editor.getFilePath()).endsWith('models/vsextension.rb')).to.be.true;
+		});
+	});
 });
