@@ -36,11 +36,11 @@ export class ActiveFile {
     return classSeleted;
   }
 
-  get classSelectedToFile(): string | undefined {
-    if (!this.wordsSelected) { return; }
+  classSelectedToFile(words = this.wordsSelected): string | undefined {
+    if (!words) { return; }
 
     // transform Test to test and/or MyTest to my_test
-    let classFile = this.wordsSelected.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+    let classFile = words.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
 
     // remove the :: case is ::MyTest::Creator
     classFile = classFile.replace(/^::|^:/, '');
@@ -48,7 +48,7 @@ export class ActiveFile {
     // transform user::test to user/test
     classFile = classFile.replace(/::/g, '/');
 
-    return `app/*/${classFile}.rb`;
+    return `${classFile}.rb`;
   }
 
   get isController(): boolean {
