@@ -59,17 +59,24 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "npm run compile && extest setup-and-run -e test-resources/ext out/test/extension.test.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
-    "@types/mocha": "^10.0.6",
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.1.1",
     "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.8"
+    "@vscode/test-electron": "^2.3.8",
+    "chai": "^4.4.1",
+    "eslint": "^8.56.0",
+    "mocha": "^9.2.2",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vscode-extension-tester": "^7.2.0",
+    "vscode-test": "^1.6.1"
   }
 }
