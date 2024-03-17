@@ -12,7 +12,7 @@ class GoToClassFile {
 		const classFile = this.activeFile.classSelectedToFile();
 		if (!classFile) { return; }
 
-		const files = await findFilesVscode(`app/*/${classFile}`);
+		const files = await findFilesVscode(`{app,lib}/**/${classFile}`);
 
 		openOrSelectFile(files);
 	}
