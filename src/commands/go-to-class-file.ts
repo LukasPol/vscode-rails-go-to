@@ -1,5 +1,4 @@
-import * as vscode from 'vscode';
-import { findFilesVscode, openFile, openOrSelectFile, showInfoMsg } from '../helpers-vscode';
+import { findFilesVscode, openOrSelectFile } from '../helpers-vscode';
 import { ActiveFile } from '../active-file';
 
 class GoToClassFile {
@@ -10,10 +9,10 @@ class GoToClassFile {
   }
 
 	async goTo() {
-		const classFile = this.activeFile.classSelectedToFile;
+		const classFile = this.activeFile.classSelectedToFile();
 		if (!classFile) { return; }
 
-		const files = await findFilesVscode(classFile);
+		const files = await findFilesVscode(`app/*/${classFile}`);
 
 		openOrSelectFile(files);
 	}

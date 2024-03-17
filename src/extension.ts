@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { commandGoToClassFile } from './commands/go-to-class-file';
 import { commandGoToTestFile } from './commands/go-to-test-file';
+import { commandGoToRelationship} from './commands/go-to-relationship';
 
 export function activate(context: vscode.ExtensionContext) {
 	let disposableGoToClassFile = vscode.commands.registerCommand('rails.goToClassFile', commandGoToClassFile);
@@ -10,6 +11,9 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposableGoToTestFile = vscode.commands.registerCommand('rails.goToTestFile', commandGoToTestFile);
 
 	context.subscriptions.push(disposableGoToTestFile);
+
+	let disposableGoToRelationship = vscode.commands.registerCommand('rails.goToRelationship', commandGoToRelationship);
+	context.subscriptions.push(disposableGoToRelationship);
 }
 
 export function deactivate() {}

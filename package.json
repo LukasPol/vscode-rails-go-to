@@ -36,6 +36,10 @@
       {
         "command": "rails.goToTestFile",
         "title": "Rails GoTo: Open Test File"
+      },
+      {
+        "command": "rails.goToRelationship",
+        "title": "Rails GoTo: Open RelationShip Model File"
       }
     ],
     "keybindings": [
@@ -49,6 +53,12 @@
         "command": "rails.goToTestFile",
         "key": "alt+shift+t",
         "mac": "alt+shift+t",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "rails.goToRelationship",
+        "key": "alt+shift+r",
+        "mac": "alt+shift+r",
         "when": "editorTextFocus"
       }
     ]

@@ -58,4 +58,13 @@ describe('Extesion Tests', function () {
 			expect((await editor.getFilePath()).endsWith('models/vsextension.rb')).to.be.true;
 		});
 	});
+
+	describe('Command: Open RelationShip Model File', () => {
+		it('Open relationship', async () => {
+			await openFile('app/models/command.rb', 2, 18);
+			await executeCommand("Rails GoTo: Open RelationShip Model File");
+			const editor = new TextEditor();
+			expect((await editor.getFilePath()).endsWith('models/vsextension.rb')).to.be.true;
+		});
+	});
 });

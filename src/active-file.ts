@@ -2,41 +2,33 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 
 export class ActiveFile {
-  public activeTextEditor: vscode.TextEditor | undefined;
+  public activeTextEditor: vscode.TextEditor;
 
   constructor() {
-    this.activeTextEditor = vscode.window.activeTextEditor;
+    this.activeTextEditor = vscode.window.activeTextEditor || vscode.window.visibleTextEditors[0];
   }
 
-  get document(): vscode.TextDocument | undefined {
-    return this.activeTextEditor?.document;
+  get document(): vscode.TextDocument {
+    return this.activeTextEditor.document;
   }
 
-  get documentUri(): vscode.Uri | undefined {
-    return this.document?.uri;
+  get documentUri(): vscode.Uri {
+    return this.document.uri;
   }
 
-  get relativePath(): string | undefined {
-    if (!this.documentUri) { return; }
-
+  get relativePath(): string {
     return path.normalize(vscode.workspace.asRelativePath(this.documentUri));
   }
 
-  get filename(): string | undefined {
-    if (!this.relativePath) { return; }
-
+  get filename(): string {
     return path.basename(this.relativePath);
   }
 
   get rootPath(): vscode.WorkspaceFolder | undefined {
-    if (!this.documentUri) { return; }
-
     return vscode.workspace.getWorkspaceFolder(this.documentUri);
   }
 
   get wordsSelected(): string | undefined {
-    if (!this.activeTextEditor || !this.document) { return; }
-
     const position = this.activeTextEditor.selection.start;
     const wordRange = this.document.getWordRangeAtPosition(position, /[\w:]+/);
     const classSeleted = this.document.getText(wordRange);
@@ -44,30 +36,39 @@ export class ActiveFile {
     return classSeleted;
   }
 
-  get classSelectedToFile(): string | undefined {
-    if (!this.wordsSelected) { return; }
+  classSelectedToFile(words = this.wordsSelected): string | undefined {
+    if (!words) { return; }
 
     // transform Test to test and/or MyTest to my_test
-    let classFile = this.wordsSelected.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+    let classFile = words.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
 
     // remove the :: case is ::MyTest::Creator
-    classFile = classFile.replace(/^::/, '');
+    classFile = classFile.replace(/^::|^:/, '');
 
     // transform user::test to user/test
-    classFile = classFile.replaceAll('::', '/');
+    classFile = classFile.replace(/::/g, '/');
 
-    return `app/*/${classFile}.rb`;
+    return `${classFile}.rb`;
   }
 
-  get isController(): boolean | undefined {
-    if (!this.documentUri) { return; }
+  get lineSelected(): string {
+    const lineNumber = this.activeTextEditor.selection.active.line
+    return this.document.lineAt(lineNumber).text;
+  }
 
+  get isRelationShipLine(): boolean {
+    return /has_many|has_one|belongs_to|has_and_belongs_to_many/.test(this.lineSelected)
+  }
+
+  get isController(): boolean {
     return this.documentUri.path.includes('app/controllers');
   }
 
-  get isTest(): boolean | undefined {
-    if (!this.documentUri) { return; }
-
+  get isTest(): boolean {
     return this.documentUri.path.includes('spec/');
+  }
+
+  get isModel(): boolean {
+    return this.documentUri.path.includes('app/models');
   }
 }
