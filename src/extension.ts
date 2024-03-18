@@ -15,7 +15,11 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(disposableGoToRelationship);
 
 	let disposableGoToFile = vscode.commands.registerCommand('rails.goToFile', commandGoToFile);
-	context.subscriptions.push(disposableGoToFile);
+	context.subscriptions.push(disposableGoToFile);	
+
+	vscode.extensions.onDidChange(() => {
+		vscode.window.showInformationMessage('Rails GoTo Updated: Enjoy the new features added!');
+	});
 }
 
 export function deactivate() {}
