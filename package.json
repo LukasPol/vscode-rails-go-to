@@ -60,7 +60,14 @@
         "key": "alt+shift+r",
         "mac": "alt+shift+r",
         "when": "editorTextFocus"
+      },
+      {
+        "command": "rails.goToFile",
+        "key": "ctrl+.",
+        "mac": "cmd+.",
+        "when": "editorTextFocus"
       }
+
     ]
   },
   "scripts": {

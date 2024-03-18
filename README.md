@@ -7,8 +7,9 @@ A Visual Studio Code Extension for easily navigating in Ruby on Rails projects.
 | Command | Keybinding (Windows/Linux) | Keybinding (Windows/Linux) | Description |
 | ------- | -------- | -------- | -------- |
 | Rails GoTo: Open File Class | `alt+shift+c` | `alt+shift+c` | You select the word and extension open the file class. |
-| Rails GoTo: Open Test File  | `alt+shift+t` | `alt+shift+t` | Opens the corresponding spec file or the implementation file for the active document. |
 | Rails GoTo: Open RelationShip File  | `alt+shift+r` | `alt+shift+r` | Opens the relationship model file. |
+| - | `CTRL + .` | `CMD + +` | Run the two previous commands `Open File Class` and `Open Relationship File` with a keybinding | 
+| Rails GoTo: Open Test File  | `alt+shift+t` | `alt+shift+t` | Opens the corresponding spec file or the implementation file for the active document. |
 
 ## Installation
 
