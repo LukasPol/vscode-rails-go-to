@@ -22,7 +22,7 @@ class GoToRelationship {
         wordsSelected = match[1];
       }
     } else if (/many/.test(currentLine)) {
-      wordsSelected = wordsSelected.replace(/s$/, '');
+      wordsSelected = wordsSelected.replace(/[e]?s$/, '');
     }
 
     const classFile = this.activeFile.classSelectedToFile(wordsSelected);
