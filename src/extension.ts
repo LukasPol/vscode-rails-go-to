@@ -3,6 +3,7 @@ import { commandGoToClassFile } from './commands/go-to-class-file';
 import { commandGoToTestFile } from './commands/go-to-test-file';
 import { commandGoToRelationship} from './commands/go-to-relationship';
 import { commandGoToFile } from './commands/go-to-file';
+import { InfoUpdateVersion } from './info-update-version';
 
 export function activate(context: vscode.ExtensionContext) {
 	let disposableGoToClassFile = vscode.commands.registerCommand('rails.goToClassFile', commandGoToClassFile);
@@ -17,9 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposableGoToFile = vscode.commands.registerCommand('rails.goToFile', commandGoToFile);
 	context.subscriptions.push(disposableGoToFile);	
 
-	vscode.extensions.onDidChange(() => {
-		vscode.window.showInformationMessage('Rails GoTo Updated: Enjoy the new features added!');
-	});
+	const infoUpdateVersion = new InfoUpdateVersion;
+	infoUpdateVersion.init();
 }
 
 export function deactivate() {}
