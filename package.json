@@ -2,7 +2,7 @@
   "name": "rails-go-to",
   "displayName": "Rails GoTo",
   "description": "Easily navigating Ruby on Rails projects",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "LukasPol",
   "author": {
     "name": "Lukas Pol"
