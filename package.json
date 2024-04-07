@@ -46,19 +46,19 @@
       {
         "command": "rails.goToClassFile",
         "key": "alt+shift+c",
-        "mac": "alt+shift+c",
+        "mac": "ctrl+shift+c",
         "when": "editorTextFocus"
       },
       {
         "command": "rails.goToTestFile",
         "key": "alt+shift+t",
-        "mac": "alt+shift+t",
+        "mac": "ctrl+shift+t",
         "when": "editorTextFocus"
       },
       {
         "command": "rails.goToRelationship",
         "key": "alt+shift+r",
-        "mac": "alt+shift+r",
+        "mac": "ctrl+shift+r",
         "when": "editorTextFocus"
       },
       {
