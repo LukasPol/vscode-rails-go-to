@@ -4,6 +4,8 @@ import { commandGoToTestFile } from './commands/go-to-test-file';
 import { commandGoToRelationship} from './commands/go-to-relationship';
 import { commandGoToFile } from './commands/go-to-file';
 import { InfoUpdateVersion } from './info-update-version';
+import { ClassLinkProvider } from './providers/class-link-provider';
+import { RelationshipLinkProvider } from './providers/relationship-link-provider';
 
 export function activate(context: vscode.ExtensionContext) {
 	let disposableGoToClassFile = vscode.commands.registerCommand('rails.goToClassFile', commandGoToClassFile);
@@ -17,6 +19,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 	let disposableGoToFile = vscode.commands.registerCommand('rails.goToFile', commandGoToFile);
 	context.subscriptions.push(disposableGoToFile);	
+
+	const classLinkProviderRegistration = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'ruby' }, new ClassLinkProvider());
+	const relationshipLinkProviderRegistration = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'ruby' }, new RelationshipLinkProvider());
+  context.subscriptions.push(classLinkProviderRegistration, relationshipLinkProviderRegistration);
 
 	const infoUpdateVersion = new InfoUpdateVersion;
 	infoUpdateVersion.init();

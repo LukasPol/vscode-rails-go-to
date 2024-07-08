@@ -28,7 +28,7 @@ class GoToRelationship {
     const classFile = this.activeFile.classSelectedToFile(wordsSelected);
 		if (!classFile) { return; }
 
-		const files = await findFilesVscode(`app/*/${classFile}`);
+		const files = await findFilesVscode(`app/**/${classFile}`);
 
 		openOrSelectFile(files);
   }
