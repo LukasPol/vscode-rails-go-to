@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const classLinkProviderRegistration = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'ruby' }, new ClassLinkProvider());
 	const relationshipLinkProviderRegistration = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'ruby' }, new RelationshipLinkProvider());
-  context.subscriptions.push(classLinkProviderRegistration,relationshipLinkProviderRegistration);
+  context.subscriptions.push(classLinkProviderRegistration, relationshipLinkProviderRegistration);
 
 	const infoUpdateVersion = new InfoUpdateVersion;
 	infoUpdateVersion.init();

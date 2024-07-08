@@ -25,9 +25,7 @@ export class BaseProvider implements vscode.DocumentLinkProvider {
 
   protected classExists(className: string): boolean {
     const workspaceFolders = vscode.workspace.workspaceFolders;
-    if (!workspaceFolders) {
-      return false;
-    }
+    if (!workspaceFolders) return false;
 
     const classFilePath = this.classNameToFilePath(className);
     for (const folder of workspaceFolders) {
