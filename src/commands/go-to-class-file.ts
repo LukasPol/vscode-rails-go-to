@@ -1,4 +1,4 @@
-import { findFilesVscode, openOrSelectFile, showInfoMsg } from '../helpers-vscode';
+import { findFilesVscode, openOrSelectFile } from '../helpers-vscode';
 import { ActiveFile } from '../active-file';
 
 class GoToClassFile {
