@@ -1,7 +1,11 @@
 # Rails GoTo Extension
+![](https://img.shields.io/visual-studio-marketplace/i/LukasPol.rails-go-to)
+![](https://img.shields.io/visual-studio-marketplace/r/LukasPol.rails-go-to)
+![](https://img.shields.io/visual-studio-marketplace/last-updated/LukasPol.rails-go-to)
+![](https://img.shields.io/visual-studio-marketplace/v/LukasPol.rails-go-to)
 
 A Visual Studio Code Extension for easily navigating in Ruby on Rails projects.
-
+   
 ## Features
 
 | Command | Keybinding (Windows/Linux) | Keybinding (Windows/Linux) | Description |
