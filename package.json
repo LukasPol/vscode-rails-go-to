@@ -40,6 +40,10 @@
       {
         "command": "rails.goToRelationship",
         "title": "Rails GoTo: Open RelationShip Model File"
+      },
+      {
+        "command": "rails.goToView",
+        "title": "Rails GoTo: Open View File"
       }
     ],
     "keybindings": [
@@ -66,8 +70,13 @@
         "key": "ctrl+.",
         "mac": "cmd+.",
         "when": "editorTextFocus"
+      },
+      {
+        "command": "rails.goToView",
+        "key": "alt+shift+w",
+        "mac": "ctrl+shift+w",
+        "when": "editorTextFocus"
       }
-
     ]
   },
   "scripts": {
