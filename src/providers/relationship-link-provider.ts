@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { BaseProvider } from "./base-provider";
 
 export class RelationshipLinkProvider extends BaseProvider {
-  provideDocumentLinks(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.DocumentLink[]> {
+  async provideDocumentLinks(document: vscode.TextDocument, token: vscode.CancellationToken): Promise<vscode.DocumentLink[]> {
     const links: vscode.DocumentLink[] = [];
     if (!document.uri.path.includes('app/models')) return links;
 

@@ -5,7 +5,7 @@ import * as fs from 'fs';
 export class BaseProvider implements vscode.DocumentLinkProvider {
   protected filesWorkspace: Map<string, Set<string>> = new Map<string, Set<string>>();
 
-  provideDocumentLinks(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.DocumentLink[]> {
+  async provideDocumentLinks(document: vscode.TextDocument, token: vscode.CancellationToken): Promise<vscode.DocumentLink[]> {
     throw new Error('Method not implemented.');
   }
 
