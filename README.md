@@ -5,13 +5,14 @@
 ![](https://img.shields.io/visual-studio-marketplace/v/LukasPol.rails-go-to)
 
 A Visual Studio Code Extension for easily navigating in Ruby on Rails projects.
-   
+
 ## Features
 
 | Command | Keybinding (Windows/Linux) | Keybinding (Windows/Linux) | Description |
 | ------- | -------- | -------- | -------- |
 | Rails GoTo: Open File Class | `CTRL + Click(mouse)` | `CTRL + Click(mouse)` | Opens the file class. |
 | Rails GoTo: Open RelationShip File  | `CTRL + Click(mouse)` | `CTRL + Click(mouse)` | Opens the relationship model file. |
+| Rails GoTo: Go to Method Definition  | `CTRL + Click(mouse)` or `alt+shift+d` | `CTRL + Click(mouse)` or `ctrl+shift+d` | Opens the file in method definition. |
 | Rails GoTo: Open Test File  | `alt+shift+t` | `ctrl+shift+t` | Opens the corresponding spec file or the implementation file for the active document. |
 
 ## Installation

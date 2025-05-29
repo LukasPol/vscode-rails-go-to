@@ -4,10 +4,12 @@ import { commandGoToTestFile } from './commands/go-to-test-file';
 import { commandGoToRelationship} from './commands/go-to-relationship';
 import { commandGoToFile } from './commands/go-to-file';
 import { commandGoToView } from './commands/go-to-view';
+import { commandGoToMethodDefinition } from './commands/go-to-definition';
 import { InfoUpdateVersion } from './info-update-version';
 import { ClassLinkProvider } from './providers/class-link-provider';
 import { RelationshipLinkProvider } from './providers/relationship-link-provider';
 import { ViewLinkProvider } from './providers/view-link-provider';
+import { MethodDefinitionLinkProvider } from './providers/method-definition-link-provider';
 
 export function activate(context: vscode.ExtensionContext) {
 	let disposableGoToClassFile = vscode.commands.registerCommand('rails.goToClassFile', commandGoToClassFile);
@@ -25,10 +27,14 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposableGoToView = vscode.commands.registerCommand('rails.goToView', commandGoToView);
 	context.subscriptions.push(disposableGoToView);
 
+	let disposableGoToMethodDefinition = vscode.commands.registerCommand('rails.goToMethodDefinition', commandGoToMethodDefinition);
+	context.subscriptions.push(disposableGoToMethodDefinition);
+
 	const classLinkProviderRegistration = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'ruby' }, new ClassLinkProvider());
 	const relationshipLinkProviderRegistration = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'ruby' }, new RelationshipLinkProvider());
 	const viewLinkProviderRegistration = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'ruby' }, new ViewLinkProvider());
-  context.subscriptions.push(classLinkProviderRegistration, relationshipLinkProviderRegistration, viewLinkProviderRegistration);
+	const methodDefinitionLinkProviderRegistration = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'ruby' }, new MethodDefinitionLinkProvider());
+  context.subscriptions.push(classLinkProviderRegistration, relationshipLinkProviderRegistration, viewLinkProviderRegistration, methodDefinitionLinkProviderRegistration);
 
 	const infoUpdateVersion = new InfoUpdateVersion;
 	infoUpdateVersion.init();

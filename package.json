@@ -44,6 +44,10 @@
       {
         "command": "rails.goToView",
         "title": "Rails GoTo: Open View File"
+      },
+      {
+        "command": "rails.goToMethodDefinition",
+        "title": "Rails GoTo: Open Method Definition File"
       }
     ],
     "keybindings": [
@@ -75,6 +79,12 @@
         "command": "rails.goToView",
         "key": "alt+shift+w",
         "mac": "ctrl+shift+w",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "rails.goToMethodDefinition",
+        "key": "alt+shift+d",
+        "mac": "ctrl+shift+d",
         "when": "editorTextFocus"
       }
     ]
