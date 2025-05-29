@@ -31,7 +31,7 @@
     "commands": [
       {
         "command": "rails.goToClassFile",
-        "title": "Rails GoTo: Class File"
+        "title": "Rails GoTo: Class File (Ctrl + Click Mouse)"
       },
       {
         "command": "rails.goToTestFile",
@@ -39,15 +39,19 @@
       },
       {
         "command": "rails.goToRelationship",
-        "title": "Rails GoTo: Open RelationShip Model File"
+        "title": "Rails GoTo: Open RelationShip Model File (Ctrl + Click Mouse)"
       },
       {
         "command": "rails.goToView",
-        "title": "Rails GoTo: Open View File"
+        "title": "Rails GoTo: Open View File (Ctrl + Click Mouse)"
       },
       {
         "command": "rails.goToMethodDefinition",
-        "title": "Rails GoTo: Open Method Definition File"
+        "title": "Rails GoTo: Open Method Definition File (Ctrl + Click Mouse)"
+      },
+      {
+        "command": "rails.goToFile",
+        "title": "Rails GoTo: Open File (Ctrl + Click Mouse)"
       }
     ],
     "keybindings": [
