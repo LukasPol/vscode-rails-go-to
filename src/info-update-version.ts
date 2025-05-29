@@ -26,13 +26,21 @@ export class InfoUpdateVersion {
       this.saveExtensionVersion(true);
       showInfoMsg('Enjoy the features added!');
     } else {
-      const userConfig: ExtensionConfig = JSON.parse(readFileSync(this.configFileUri.fsPath, 'utf-8'));
+      let userConfig: ExtensionConfig;
 
-      if (!userConfig.needShowMsg) { return }
+      try {
+        userConfig = JSON.parse(readFileSync(this.configFileUri.fsPath, 'utf-8'));
+      } catch (e) {
+        this.saveExtensionVersion(true);
+        showInfoMsg('Enjoy the features added!');
+        return;
+      }
+
+      if (!userConfig.needShowMsg) { return; }
 
       if (this.isUpdateVersion(userConfig)) {
-        showInfoMsg('Extesion Updated. Enjoy the new features added!');
-        this.saveExtensionVersion(); 
+        showInfoMsg('Extension Updated. Enjoy the new features added!');
+        this.saveExtensionVersion();
       }
     }
   }

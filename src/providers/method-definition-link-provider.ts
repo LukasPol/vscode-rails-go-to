@@ -34,7 +34,7 @@ export class MethodDefinitionLinkProvider extends BaseProvider {
       links.push(link);
     }
 
-    // this.decorateLinks(links);
+    this.decorateLinks(links);
 
     return links;
   }
